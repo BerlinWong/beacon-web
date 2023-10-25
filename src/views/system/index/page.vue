@@ -1,7 +1,7 @@
 <template>
   <d2-container class="page">
     <d2-page-cover>
-      <d2-icon-svg class="logo" name="d2-admin"/>
+      <d2-icon-svg class="logo" name="junyuan"/>
       <template slot="footer">
         <div class="btn-group">
           <span class="btn-group__btn" @click="$open('https://github.com/d2-projects')">开源组织</span> |
@@ -20,21 +20,21 @@
             </p>
           </el-popover>
         </div>
-        <d2-badge/>
-        <d2-help/>
+        <!-- <d2-badge/> -->
+        <!-- <d2-help/> -->
       </template>
     </d2-page-cover>
   </d2-container>
 </template>
 
 <script>
-import D2Badge from './components/d2-badge'
-import D2Help from './components/d2-help'
+// import D2Badge from './components/d2-badge'
+// import D2Help from './components/d2-help'
 import D2PageCover from './components/d2-page-cover'
 export default {
   components: {
-    D2Badge,
-    D2Help,
+    // D2Badge,
+    // D2Help,
     D2PageCover
   }
 }

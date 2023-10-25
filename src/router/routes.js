@@ -21,6 +21,15 @@ const frameIn = [
         },
         component: _import('system/index')
       },
+      {
+        path: '/line-page',
+        name: 'line-page',
+        component: () => import('@/pages/line-page'),
+        meta: {
+          auth: true,
+          title: '图形分析'
+        }
+      },
       // 演示页面
       {
         path: 'page1',
@@ -35,7 +44,7 @@ const frameIn = [
         path: 'page2',
         name: 'page2',
         meta: {
-          title: '页面 2',
+          title: 'AI 辅助选股',
           auth: true
         },
         component: _import('demo/page2')
@@ -44,7 +53,7 @@ const frameIn = [
         path: 'page3',
         name: 'page3',
         meta: {
-          title: '页面 3',
+          title: '舆情监控',
           auth: true
         },
         component: _import('demo/page3')
