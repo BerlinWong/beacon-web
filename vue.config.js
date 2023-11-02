@@ -38,6 +38,12 @@ module.exports = {
   lintOnSave: true,
   devServer: {
     publicPath, // 和 publicPath 保持一致
+    proxy: {
+      '/': {
+        target: `http://127.0.0.1:5000`,
+        changeOrigin: true,
+      } 
+    },
     disableHostCheck: process.env.NODE_ENV === 'development' // 关闭 host check，方便使用 ngrok 之类的内网转发工具
   },
   css: {

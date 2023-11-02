@@ -1,7 +1,6 @@
 // Vue
 import Vue from 'vue'
 import i18n from './i18n'
-// import VCharts from 'v-charts'
 import App from './App'
 // 核心插件
 import d2Admin from '@/plugin/d2admin'
@@ -10,19 +9,21 @@ import store from '@/store/index'
 
 // 菜单和路由设置
 import router from './router'
+import axios from 'axios'
 import { menuHeader, menuAside } from '@/menu'
 import { frameInRoutes } from '@/router/routes'
+import VCharts from 'v-charts'
 
 // 核心插件
+Vue.prototype.axios = axios
 Vue.use(d2Admin)
-// Vue.use(VCharts)
-
+Vue.use(VCharts)
 new Vue({
   router,
   store,
   i18n,
   render: h => h(App),
-  created () {
+  created() {
     // 处理路由 得到每一级的路由设置
     this.$store.commit('d2admin/page/init', frameInRoutes)
     // 设置顶栏菜单
@@ -32,7 +33,7 @@ new Vue({
     // 初始化菜单搜索功能
     this.$store.commit('d2admin/search/init', menuHeader)
   },
-  mounted () {
+  mounted() {
     // 展示系统信息
     this.$store.commit('d2admin/releases/versionShow')
     // 用户登录后从数据库加载一系列的设置

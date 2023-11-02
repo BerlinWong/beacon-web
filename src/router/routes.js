@@ -30,6 +30,15 @@ const frameIn = [
           title: '图形分析'
         }
       },
+      {
+        path: '/kline_analysis',
+        name: 'kline_analysis',
+        component: () => import('@/pages/kline_analysis'),
+        meta: {
+          auth: true,
+          title: 'K线分析平台'
+        }
+      },
       // 演示页面
       {
         path: 'page1',
