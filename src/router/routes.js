@@ -22,21 +22,12 @@ const frameIn = [
         component: _import('system/index')
       },
       {
-        path: '/line-page',
-        name: 'line-page',
-        component: () => import('@/pages/line-page'),
+        path: '/task-queue',
+        name: 'task-queue',
+        component: () => import('@/pages/task_queue'),
         meta: {
           auth: true,
-          title: '图形分析'
-        }
-      },
-      {
-        path: '/kline_analysis',
-        name: 'kline_analysis',
-        component: () => import('@/pages/kline_analysis'),
-        meta: {
-          auth: true,
-          title: 'K线分析平台'
+          title: '任务队列'
         }
       },
       // 演示页面
@@ -48,24 +39,6 @@ const frameIn = [
           auth: true
         },
         component: _import('demo/page1')
-      },
-      {
-        path: 'page2',
-        name: 'page2',
-        meta: {
-          title: 'AI 辅助选股',
-          auth: true
-        },
-        component: _import('demo/page2')
-      },
-      {
-        path: 'page3',
-        name: 'page3',
-        meta: {
-          title: '舆情监控',
-          auth: true
-        },
-        component: _import('demo/page3')
       },
       // 系统 前端日志
       {

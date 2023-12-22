@@ -4,7 +4,7 @@
       <slot/>
     </div>
     <!-- <p class="d2-page-cover__title">D2 Admin {{$version}}</p> -->
-    <p class="d2-page-cover__sub-title">综合性敏捷中台</p>
+    <p class="d2-page-cover__sub-title">Param Pro</p>
     <p class="d2-page-cover__build-time">FINAL BUILD TIME {{$buildTime}}</p>
     <slot name="footer"/>
     <a target="blank" href="https://github.com/d2-projects/d2-admin">
