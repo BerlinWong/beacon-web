@@ -40,7 +40,7 @@ module.exports = {
     publicPath, // 和 publicPath 保持一致
     proxy: {
       '/': {
-        target: 'http://127.0.0.1:8000',
+        target: 'http://127.0.0.1:5000',
         changeOrigin: true
       }
     },

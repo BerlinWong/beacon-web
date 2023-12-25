@@ -11,6 +11,7 @@ import store from '@/store/index'
 import router from './router'
 import axios from 'axios'
 import { menuHeader, menuAside } from '@/menu'
+// import { menuHeader } from '@/menu'
 import { frameInRoutes } from '@/router/routes'
 import VCharts from 'v-charts'
 
@@ -29,7 +30,9 @@ new Vue({
     // 设置顶栏菜单
     this.$store.commit('d2admin/menu/headerSet', menuHeader)
     // 设置侧边栏菜单
+    // this.$store.commit('d2admin/menu/asideSet', menuAside)
     this.$store.commit('d2admin/menu/asideSet', menuAside)
+    this.$store.dispatch('d2admin/menu/asideCollapseSet', false)
     // 初始化菜单搜索功能
     this.$store.commit('d2admin/search/init', menuHeader)
   },

@@ -16,23 +16,23 @@ function supplementPath(menu) {
 }
 
 export const menuHeader = supplementPath([
-  // { path: '/index', title: '首页', icon: 'home' },
-  // {
-  //   title: '机器学习',
-  //   icon: 'bar-chart-o',
-  //   children: [
-  //     { path: '/task-queue', title: '任务队列', icon: 'clock-o' }
-  //   ]
-  // }
+  { path: '/index', title: '首页', iconSvg: 'cms' },
+  {
+    title: '机器学习',
+    iconSvg: 'ml',
+    children: [
+      { path: '/task-queue', title: '任务队列', iconSvg: 'task_queue' }
+    ]
+  }
 ])
 
 export const menuAside = supplementPath([
-  { path: '/index', title: '首页', icon: 'home' },
+  { path: '/index', title: '首页', iconSvg: 'cms' },
   {
     title: '机器学习',
-    icon: 'bar-chart-o',
+    iconSvg: 'ml',
     children: [
-      { path: '/task-queue', title: '任务队列', icon: 'clock-o' }
+      { path: '/task-queue', title: '任务队列', iconSvg: 'task_queue' }
     ]
   }
 ])
