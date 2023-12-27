@@ -21,15 +21,7 @@ const frameIn = [
         },
         component: _import('system/index')
       },
-      {
-        path: '/task-queue',
-        name: 'task-queue',
-        component: () => import('@/pages/task_queue'),
-        meta: {
-          auth: true,
-          title: '任务队列'
-        }
-      },
+
       // 演示页面
       {
         path: 'page1',
@@ -49,6 +41,63 @@ const frameIn = [
           auth: true
         },
         component: _import('system/log')
+      },
+      // 刷新页面 必须保留
+      {
+        path: 'refresh',
+        name: 'refresh',
+        hidden: true,
+        component: _import('system/function/refresh')
+      },
+      // 页面重定向 必须保留
+      {
+        path: 'redirect/:route*',
+        name: 'redirect',
+        hidden: true,
+        component: _import('system/function/redirect')
+      }
+    ]
+  },
+  {
+    path: '/parameter-pools',
+    redirect: { name: 'parameter-pools' },
+    component: layoutHeaderAside,
+    children: [
+      {
+        path: '/task-assembly',
+        name: 'task-assembly',
+        component: () => import('@/pages/parameter-pools/task-assembly'),
+        meta: {
+          auth: true,
+          title: '拼装车间'
+        }
+      },
+      {
+        path: '/task-queue',
+        name: 'task-queue',
+        component: () => import('@/pages/parameter-pools/task-queue'),
+        meta: {
+          auth: true,
+          title: '任务队列'
+        }
+      },
+      {
+        path: '/task-done',
+        name: 'task-done',
+        component: () => import('@/pages/parameter-pools/task-done'),
+        meta: {
+          auth: true,
+          title: '训练完成'
+        }
+      },
+      {
+        path: '/task-failed',
+        name: 'task-failed',
+        component: () => import('@/pages/parameter-pools/task-failed'),
+        meta: {
+          auth: true,
+          title: '训练失败'
+        }
       },
       // 刷新页面 必须保留
       {

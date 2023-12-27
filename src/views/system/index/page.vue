@@ -6,9 +6,8 @@
         <div class="btn-group">
           <span class="btn-group__btn" @click="$open('https://github.com/d2-projects')">开源组织</span> |
           <span class="btn-group__btn" @click="$open('https://d2.pub/zh/doc/d2-admin')">文档</span> |
-          <span class="btn-group__btn" @click="$open('https://github.com/d2-projects/d2-admin-start-kit')">简化版</span> |
-          <span class="btn-group__btn" @click="$open('https://juejin.im/user/57a48b632e958a006691b946/posts')">掘金</span> |
-          <el-popover :width="172" trigger="hover">
+          <span class="btn-group__btn" @click="$open('https://github.com/d2-projects/d2-admin-start-kit')">简化版</span>
+          <!-- <el-popover :width="172" trigger="hover">
             <p class="d2-mt-0 d2-mb-10">今日前端</p>
             <img src="./image/qr@2x.png" style="width: 172px;">
             <span slot="reference" class="btn-group__btn btn-group__btn--link">
@@ -18,7 +17,7 @@
             <p style="font-size: 12px; margin-top: 0px; margin-bottom: 0px;">
               官方公众号，主要推送前端技术类文章、框架资源、学习教程，以及 D2 系列项目更新信息
             </p>
-          </el-popover>
+          </el-popover> -->
         </div>
         <!-- <d2-badge/> -->
         <!-- <d2-help/> -->

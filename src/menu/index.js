@@ -16,23 +16,30 @@ function supplementPath(menu) {
 }
 
 export const menuHeader = supplementPath([
-  { path: '/index', title: '首页', iconSvg: 'cms' },
+  { path: '/index', title: '首页', iconSvg: 'shouye' },
   {
-    title: '机器学习',
+    title: '参数池',
     iconSvg: 'ml',
     children: [
-      { path: '/task-queue', title: '任务队列', iconSvg: 'task_queue' }
+      // Assembly workshop
+      { path: '/task-assembly', title: '拼装车间', iconSvg: 'task-assembly' },
+      { path: '/task-queue', title: '任务队列', iconSvg: 'task-queue' },
+      { path: '/task-done', title: '训练完成', iconSvg: 'task-done' },
+      { path: '/task-failed', title: '训练异常', iconSvg: 'task-failed' }
     ]
   }
 ])
 
 export const menuAside = supplementPath([
-  { path: '/index', title: '首页', iconSvg: 'cms' },
+  { path: '/index', title: '首页', iconSvg: 'shouye' },
   {
-    title: '机器学习',
+    title: '参数池',
     iconSvg: 'ml',
     children: [
-      { path: '/task-queue', title: '任务队列', iconSvg: 'task_queue' }
+      { path: '/task-assembly', title: '拼装车间', iconSvg: 'task-assembly' },
+      { path: '/task-queue', title: '任务队列', iconSvg: 'task-queue' },
+      { path: '/task-done', title: '训练完成', iconSvg: 'task-done' },
+      { path: '/task-failed', title: '训练异常', iconSvg: 'task-failed' }
     ]
   }
 ])
