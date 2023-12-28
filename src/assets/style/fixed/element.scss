@@ -1,11 +1,14 @@
 // element 样式补丁
 .el-card {
   &.is-always-shadow {
-    box-shadow: 0 0 8px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5);
+    box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6),
+      0 2px 4px 0 rgba(232, 237, 250, 0.5);
   }
+
   &.is-hover-shadow {
     &:hover {
-      box-shadow: 0 0 8px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5);
+      box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6),
+        0 2px 4px 0 rgba(232, 237, 250, 0.5);
     }
   }
 }
@@ -28,4 +31,23 @@
 .el-table th.gutter,
 .el-table colgroup.gutter {
   display: table-cell !important;
+}
+
+// .el-table__header-wrapper th.gutter:last-of-type {
+//   display: block !important;
+//   width  : 7px !important;
+// }
+
+// .has-gutter th.gutter {
+//   width: 7px !important;
+// }
+
+.el-table__header colgroup col:last-of-type {
+  display: table-cell !important;
+}
+
+.el-table .has-gutter .gutter {
+  display            : table-cell !important;
+  // background-color: red;
+  width              : 7px !important;
 }
