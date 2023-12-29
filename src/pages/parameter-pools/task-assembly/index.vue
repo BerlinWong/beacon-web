@@ -7,7 +7,7 @@
           <div style="margin-bottom: 15px;">参数列表</div>
           <el-row :gutter="20">
             <el-col :span="18">
-              <el-table :data="suggestParams" style="width: 100%" border :stripe=true height="calc(100vh - 240px - 30px)">
+              <el-table :data="suggestParams" style="width: 100%" border :stripe=true>
                 <el-table-column prop="name" label="参数项" width="120px" :formatter="paramFormatter">
                   <template v-slot="scope">
                     <span style="margin-right: 5px;color:#2f74ff;">{{ paramFormatter(scope.row) }}</span>
@@ -28,8 +28,8 @@
                 </el-table-column>
               </el-table>
             </el-col>
-            <el-col :span="4">
-              <template>
+            <el-col :span="6">
+              <!-- <template>
                 <div class="terminal-box">
                   <div class="terminal-header">
                     <div class="close-btn"></div>
@@ -41,7 +41,7 @@
                       v-for="(val, key, index) in params_col" :key="index">{{ val.name }} {{ val.default }}</span>
                   </div>
                 </div>
-              </template>
+              </template> -->
               <div class="container-main-right">
                 <template>
                   <div class="btn-list">
@@ -104,6 +104,75 @@ export default {
       pre_command: 'conda activate py39torch118 && python',
       exec_file: '/home/Shares/workdic/simulation_oneday.py',
       params_col: [{
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
+        name: '--uid',
+        default: 'request'
+      }, {
         name: '--uid',
         default: 'request'
       }],
@@ -255,12 +324,11 @@ export default {
 }
 </script>
 <style scoped>
-.terminal-box {
+/* .terminal-box {
   border: 2px solid #333;
   border-radius: 5px;
   overflow: hidden;
-  width: 400px;
-  max-width: 100%;
+  width: calc(90%);
   background-color: #2d2d2d;
   margin-bottom: 15px;
   color: #eee;
@@ -272,7 +340,7 @@ export default {
   padding: 8px;
   display: flex;
   align-items: center;
-}
+} */
 
 .close-btn {
   background-color: #ff5f56;
@@ -301,6 +369,8 @@ export default {
 .terminal-body {
   padding: 16px;
   white-space: pre-wrap;
+  height: 200px;
+  overflow: hidden;
 }
 
 .container {
@@ -323,7 +393,7 @@ export default {
 }
 
 .scroll-view {
-  height: calc(100% - 55px);
+  height: calc(100% - 80px);
   margin-top: 50px;
   overflow-y: scroll;
   width: 110%;
