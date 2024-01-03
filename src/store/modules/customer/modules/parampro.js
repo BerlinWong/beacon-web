@@ -40,7 +40,7 @@ export default {
     async getFailedTasks(context, payload) {
       // 发起异步请求
       // 查询所有未完成任务
-      const response = await axios.post('/get_individual/unfinished', payload)
+      const response = await axios.post('/get_individual/failed', payload)
       // 提交 mutation 来更新 state
       context.commit('taskList', response.data)
       return response.data // 可以返回响应数据

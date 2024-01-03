@@ -14,11 +14,37 @@ import { menuHeader, menuAside } from '@/menu'
 // import { menuHeader } from '@/menu'
 import { frameInRoutes } from '@/router/routes'
 import VCharts from 'v-charts'
+// import VueSocketIO from 'vue-socket.io'
+// import SocketIO from 'socket.io-client'
 
 // 核心插件
 Vue.prototype.axios = axios
 Vue.use(d2Admin)
 Vue.use(VCharts)
+
+// const options = { path: '/demo/' }
+// Vue.use(new VueSocketIO({
+//   debug: true,
+//   connection: SocketIO('http://192.168.0.41:5000', options),
+//   vuex: {
+//     store,
+//     actionPrefix: 'SOCKET_',
+//     mutationPrefix: 'SOCKET_'
+//   }
+// })
+// )
+
+// Vue.use(new VueSocketIO({
+//   debug: true,
+//   connection: SocketIO('http://192.168.0.41:5000'),
+//   vuex: {
+//     store,
+//     actionPrefix: 'SOCKET_',
+//     mutationPrefix: 'SOCKET_'
+//   }
+// })
+// )
+
 new Vue({
   router,
   store,

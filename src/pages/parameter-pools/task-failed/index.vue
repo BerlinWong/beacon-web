@@ -34,9 +34,7 @@
           </el-table-column>
           <el-table-column label="操作" width="100px">
             <template slot-scope="scope">
-              <el-button @click="handleClickToTop(scope.row)" type="text" size="small">置顶</el-button>
-              <el-button @click="handleClickToLast(scope.row)" type="text" size="small">滞后</el-button>
-              <el-button @click="handleClickToDel(scope.row)" type="text" size="small">删除</el-button>
+              <el-button @click="handleClickDetails(scope.row)" type="text" size="small">详情</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -76,10 +74,38 @@ export default {
         page_number: 0,
         page_size: 10
       },
-      total: 0
+      total: 0,
+      response_info: {}
     }
   },
   methods: {
+    handleClickDetails(row) {
+      console.log(row.response_info)
+      if (row.response_info) {
+        this.response_info = JSON.parse(row.response_info)
+        if (Object.prototype.hasOwnProperty.call(this.response_info, 'errMsg')) {
+          this.$alert(this.response_info.errMsg, '错误信息', {
+            confirmButtonText: '确定',
+            callback: action => {
+              this.$message({
+                type: 'info',
+                message: `action: ${action}`
+              })
+            }
+          })
+        } else {
+          this.$alert('预料之外的错误', '错误信息', {
+            confirmButtonText: '确定',
+            callback: action => {
+              this.$message({
+                type: 'info',
+                message: `action: ${action}`
+              })
+            }
+          })
+        }
+      }
+    },
     statusFormatter(row) {
       const statusMapping = {
         0: '等待运行',
@@ -158,7 +184,7 @@ export default {
     formatColumnNull(row, column, cellValue) {
       return cellValue || '暂未更新'
     },
-    getUnfinishTaskList() {
+    getTaskList() {
       this.$store.dispatch('customer/parampro/getFailedTasks', this.queryData)
         .then(response => {
           // 在这里处理异步操作成功后的响应
@@ -179,7 +205,7 @@ export default {
     }
   },
   created() {
-    this.getUnfinishTaskList(this.queryData)
+    this.getTaskList(this.queryData)
   }
 }
 </script>
