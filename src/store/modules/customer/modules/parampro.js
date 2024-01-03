@@ -4,7 +4,8 @@ export default {
   state: {
     // 用户信息
     taskList: null,
-    stockList: []
+    stockList: [],
+    commandList: null
   },
   mutations: {
     taskList(state, data) {
@@ -12,6 +13,9 @@ export default {
     },
     stockList(state, data) {
       state.stockList = data
+    },
+    commandList(state, data) {
+      state.commandList = data
     }
   },
   actions: {
@@ -46,6 +50,13 @@ export default {
       const response = await axios.post('/get_all_stock_by_szorsh_ws', payload)
       // 提交 mutation 来更新 state
       context.commit('stockList', response.data)
+      return response.data // 可以返回响应数据
+    },
+    async toSubmit(context, payload) {
+      // 发起异步请求
+      const response = await axios.post('/add_new_queue', payload)
+      // 提交 mutation 来更新 state
+      context.commit('commandList', response.data)
       return response.data // 可以返回响应数据
     }
   }

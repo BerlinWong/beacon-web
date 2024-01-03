@@ -9,11 +9,11 @@
           </el-table-column> -->
           <el-table-column prop="queue_id" label="队列编号" width="120px" :formatter="formatQueueId" align="center">
           </el-table-column>
-          <el-table-column prop="creator" label="创建人" width="80px" align="center">
+          <el-table-column prop="creator" label="创建人" width="80px" align="center" sortable>
           </el-table-column>
-          <el-table-column prop="priority" label="优先级" width="80px" align="center" :formatter="priorityFormatter">
+          <el-table-column prop="priority" label="优先级" width="80px" align="center" :formatter="priorityFormatter" sortable>
           </el-table-column>
-          <el-table-column width="100px" label="当前状态" align="center">
+          <el-table-column width="100px" label="当前状态" align="center" sortable>
             <template v-slot="scope">
               <div v-if="scope.row.start_time">
                 <el-tooltip class="item" effect="dark" placement="top">
@@ -46,7 +46,7 @@
               </div>
             </template>
           </el-table-column>
-          <el-table-column prop="create_time" label="创建时间" width="150px" align="center">
+          <el-table-column prop="create_time" label="创建时间" width="150px" align="center" sortablesortable>
           </el-table-column>
           <!-- <el-table-column prop="start_time" label="任务开始时间" width="150px" align="center" :formatter="formatColumnNull">
           </el-table-column>
@@ -54,9 +54,9 @@
           </el-table-column> -->
           <el-table-column label="操作" width="100px">
             <template slot-scope="scope">
-              <el-button @click="handleClickToTop(scope.row)" type="text" size="small">置顶</el-button>
-              <el-button @click="handleClickToLast(scope.row)" type="text" size="small">滞后</el-button>
-              <el-button @click="handleClickToDel(scope.row)" type="text" size="small">删除</el-button>
+              <el-button @click="handleClickToTop(scope.row)" type="text" size="small" :disabled="scope.row.msg_id != 0">置顶</el-button>
+              <el-button @click="handleClickToLast(scope.row)" type="text" size="small" :disabled="scope.row.msg_id != 0">滞后</el-button>
+              <el-button @click="handleClickToDel(scope.row)" type="text" size="small" :disabled="scope.row.msg_id != 0">删除</el-button>
             </template>
           </el-table-column>
         </el-table>
