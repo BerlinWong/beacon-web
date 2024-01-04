@@ -1,6 +1,17 @@
 <template @scoped>
   <d2-container>
-    <template slot="header">任务队列</template>
+    <template slot="header">
+      <template>
+        <div class="header-box">
+          <div class="header-box-title">训练失败</div>
+          <div class="header-box-count">
+            <template>
+              <div><span>{{ refreshLeftCount }}</span><span> 秒后刷新</span></div>
+            </template>
+          </div>
+        </div>
+      </template>
+    </template>
     <div>
       <template>
         <el-table :data="tableData" border style="width: 100%;margin-bottom: 50px;" :stripe=true>
@@ -49,7 +60,9 @@
             layout="total, sizes, prev, pager, next, jumper" :total="total">
           </el-pagination>
         </div>
-      </template></template>
+      </template>
+
+    </template>
   </d2-container>
 </template>
 <style scoped>
@@ -64,6 +77,20 @@
   width: calc(100% - 200px);
   text-align: center;
 }
+
+.header-box {
+  display: flex;
+  /* justify-content: space-around; */
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header-box-count {
+  font-size: 12px;
+  margin: 5px;
+
+}
 </style>
 <script>
 export default {
@@ -75,23 +102,20 @@ export default {
         page_size: 10
       },
       total: 0,
-      response_info: {}
+      response_info: {},
+      refreshLeftCount: 0,
+      refreshSpeed: 60,
+      doCount: '',
+      doRefresh: ''
     }
   },
   methods: {
     handleClickDetails(row) {
-      console.log(row.response_info)
       if (row.response_info) {
         this.response_info = JSON.parse(row.response_info)
         if (Object.prototype.hasOwnProperty.call(this.response_info, 'errMsg')) {
           this.$alert(this.response_info.errMsg, '错误信息', {
-            confirmButtonText: '确定',
-            callback: action => {
-              this.$message({
-                type: 'info',
-                message: `action: ${action}`
-              })
-            }
+            confirmButtonText: '确定'
           })
         } else {
           this.$alert('预料之外的错误', '错误信息', {
@@ -105,6 +129,7 @@ export default {
           })
         }
       }
+      this.getTaskList()
     },
     statusFormatter(row) {
       const statusMapping = {
@@ -202,10 +227,28 @@ export default {
           // 在这里处理异步操作失败时的错误
           console.error('Error:', error)
         })
+      this.refreshLeftCount = this.refreshSpeed
+    },
+    refreshPage() {
+      this.doRefresh = setInterval(() => {
+        this.getTaskList()
+        if (this.destory === true) {
+          return 0
+        }
+      }, this.refreshSpeed * 1000)
+      this.doCount = setInterval(() => {
+        this.refreshLeftCount--
+      }, 1000)
     }
   },
-  created() {
+  mounted() {
     this.getTaskList(this.queryData)
+    this.refreshPage()
+  },
+  beforeDestroy() {
+    console.log('beforeDestroy')
+    clearInterval(this.doRefresh)
+    clearInterval(this.doCount)
   }
 }
 </script>
